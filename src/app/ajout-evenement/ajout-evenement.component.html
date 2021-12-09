@@ -1,0 +1,33 @@
+<p>ajout-evenement works !</p>
+
+
+<div class="container" >
+    <div>
+        <h2>Ajouter un Evenement :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID évenement</label>
+            <input type="text" name="idEvenement" class="form-control" required>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom de l'évenement</label>
+            <input type="text" name="nomEvenement" class="form-control" required>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date de début</label>
+            <input type="date" name="dateDeb" class="form-control" required>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date de fin</label>
+            <input type="date" name="dateFin"  min="dateDeb" class="form-control" required>
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+
+</div>
