@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Evenement } from '../evenements/evenement';
-import { EvenementService } from '../evenements/evenement.service';
 
 @Component({
   selector: 'app-ajout-evenement',

@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map, Observable } from 'rxjs';
 import { Evenement } from './evenements/evenement';
+import { Tournoi } from './tournoi/tournoi';
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  urlAPi = 'http://127.0.0.1:8080/api';
+  urlAPi = 'http://127.0.0.1:8080';
   headerDict = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -17,7 +18,7 @@ export class DataService {
   constructor(protected http: HttpClient) { }
 
   getEvenements(): Observable<Evenement[]>{
-    return this.http.get<Evenement[]>(this.urlAPi+'/evenements', this.requestOptions).pipe(
+    return this.http.get<Evenement[]>(this.urlAPi+'/api/evenements', this.requestOptions).pipe(
       map(res =>{
         return res;
       })
@@ -25,6 +26,23 @@ export class DataService {
   }
 
   addEvenement(ev: Evenement): Observable<Evenement>{
-    return this.http.post<Evenement>(this.urlAPi+'/evenements',ev,this.requestOptions);
+    return this.http.post<Evenement>(this.urlAPi+'/api/evenements',ev,this.requestOptions);
   }
+
+  getTournoiByURL(id: string): Observable<Tournoi>{
+    return this.http.get<Tournoi>(this.urlAPi+id, this.requestOptions).pipe(
+      map(res =>{
+        return res;
+      })
+    )
+  }
+
+  getTournoiById(id: any): Observable<Tournoi>{
+    return this.http.get<Tournoi>(this.urlAPi+'/api/tournois/'+id, this.requestOptions).pipe(
+      map(res =>{
+        return res;
+      })
+    )
+  }
+
 }

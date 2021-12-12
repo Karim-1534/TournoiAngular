@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Tournoi } from '../tournoi/tournoi';
 import { Evenement } from './evenement';
 
 @Component({
@@ -15,15 +16,26 @@ export class EvenementsComponent implements OnInit {
   getAll() :void{
     this.data.getEvenements().subscribe(
       (data: Evenement[]) => {
-        this.evenements = Object.values(data)
-        console.log(data)
+        this.evenements = data
+        data.forEach(ev => {
+          ev.listTournois=[]
+          ev.tournois.forEach(url => {
+            this.data.getTournoiByURL(url).subscribe(
+              (data: Tournoi) => {
+                ev.listTournois.push(data)
+                console.log(ev.listTournois)
+              }
+            )
+          });
+          
+          
+        });
       }
     )
   }
 
   ngOnInit(): void {
     this.getAll();
-    
   }
 
 }

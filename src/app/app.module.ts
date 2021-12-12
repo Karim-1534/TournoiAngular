@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { TournoiComponent } from './tournoi/tournoi.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     AjoutEvenementComponent,
     ModifierEvenementComponent,
     SupprimerEvenementComponent,
-    LoginComponent
+    LoginComponent,
+    TournoiComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,13 @@
+import { Tournoi } from "../tournoi/tournoi";
+
 export class Evenement {
     id!: number;
     nom!: string;
     dateDeb!: Date;
     dateFin!: Date;
+    tournois!: string[];
+    listTournois: Tournoi[] = [];
+
 
     constructor(){}
 
