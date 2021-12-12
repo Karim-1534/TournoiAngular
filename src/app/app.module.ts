@@ -8,6 +8,9 @@ import { AjoutEvenementComponent } from './ajout-evenement/ajout-evenement.compo
 import { ModifierEvenementComponent } from './modifier-evenement/modifier-evenement.component';
 import { SupprimerEvenementComponent } from './supprimer-evenement/supprimer-evenement.component';
 import { LoginComponent } from './login/login.component';
+import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,11 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

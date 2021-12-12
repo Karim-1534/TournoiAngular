@@ -1,12 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Evenement } from '../evenements/evenement';
+import { EvenementService } from '../evenements/evenement.service';
 
 @Component({
   selector: 'app-ajout-evenement',
   templateUrl: './ajout-evenement.component.html'
 })
 export class AjoutEvenementComponent implements OnInit {
+  newEvenement = new Evenement();
 
-  constructor() { }
+  constructor(private data: DataService) { }
+
+  addEvenement(){
+    this.data.addEvenement(this.newEvenement).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
+  }
 
   ngOnInit(): void {
   }

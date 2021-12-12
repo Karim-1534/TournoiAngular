@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Evenement } from './evenement';
 
 @Component({
   selector: 'app-evenements',
@@ -6,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvenementsComponent implements OnInit {
 
-  constructor() { }
+  public evenements: Evenement[] = [];
+
+  constructor(private data: DataService) { }
+
+  getAll() :void{
+    this.data.getEvenements().subscribe(
+      (data: Evenement[]) => {
+        this.evenements = Object.values(data)
+        console.log(data)
+      }
+    )
+  }
 
   ngOnInit(): void {
+    this.getAll();
     
   }
 
