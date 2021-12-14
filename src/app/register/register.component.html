@@ -1,54 +1,34 @@
-<div class="col-md-12">
+<div class="col-md-4 container">
   <div class="card card-container">
-    
-    <form
-      *ngIf="!isSuccessful"
-      name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
-      #f="ngForm"
-      novalidate>
+
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="login">Login</label>
-        <input
-          type="text"
-          class="form-control"
-          name="login"
-          [(ngModel)]="form.login"
-          required
-          minlength="3"
-          maxlength="20"
-          #login="ngModel"
-        />
+        <input type="text" class="form-control" name="login" [(ngModel)]="form.login" required minlength="3"
+          maxlength="20" #login="ngModel" />
         <div class="alert-danger" *ngIf="f.submitted && login.invalid">
         </div>
         <br>
-        
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          name="password"
-          [(ngModel)]="form.password"
-          required
-          minlength="6"
-          #password="ngModel"
-        />
-        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+            #password="ngModel" />
+          <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+          </div>
+          <br>
+
+          <div class="form-group text-center">
+            <button class="btn btn-success">Sign Up</button>
+          </div>
+
+          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Signup failed!<br />{{ errorMessage }}
+          </div>
+
+
+          <div class="alert alert-success" *ngIf="isSuccessful">
+            Your registration is successful!
+          </div>
         </div>
-        <br>
-
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
       </div>
-
-      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
-      </div>
-
-
-    <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
-    </div>
-  </div>
-</div>

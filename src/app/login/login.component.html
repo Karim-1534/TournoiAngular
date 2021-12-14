@@ -1,61 +1,29 @@
-<div class="col-md-12">
-  <div class="card card-container">
-    
-    <form
-      *ngIf="!isLoggedIn"
-      name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
-      #f="ngForm"
-      novalidate
-    >
+<div class="col-md-4  container">
+  <div class="card card-body">
+
+    <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="login">Login</label>
-        <input
-          type="text"
-          class="form-control"
-          name="login"
-          [(ngModel)]="form.login"
-          required
-          #login="ngModel"
-        />
-        <div
-          class="alert alert-danger"
-          role="alert"
-          *ngIf="f.submitted && login.invalid"
-        >
+        <input type="text" class="form-control" name="login" [(ngModel)]="form.login" required #login="ngModel" />
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && login.invalid">
           Login is required!
         </div>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          name="password"
-          [(ngModel)]="form.password"
-          required
-          minlength="6"
-          #password="ngModel"
-        />
-        <div
-          class="alert alert-danger"
-          role="alert"
-          *ngIf="f.submitted && password.invalid"
-        >
-          
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" />
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+
         </div>
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">
+      <div class="form-group text-center">
+        <button class="btn btn-success">
           Login
         </button>
       </div>
       <div class="form-group">
-        <div
-          class="alert alert-danger"
-          role="alert"
-          *ngIf="f.submitted && isLoginFailed"
-        >
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
           Login failed: {{ errorMessage }}
         </div>
       </div>

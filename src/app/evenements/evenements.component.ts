@@ -13,12 +13,12 @@ export class EvenementsComponent implements OnInit {
 
   constructor(private data: DataService) { }
 
-  getAll() :void{
+  getAll(): void {
     this.data.getEvenements().subscribe(
       (data: Evenement[]) => {
         this.evenements = data
         data.forEach(ev => {
-          ev.listTournois=[]
+          ev.listTournois = []
           ev.tournois.forEach(url => {
             this.data.getTournoiByURL(url).subscribe(
               (data: Tournoi) => {
@@ -26,8 +26,6 @@ export class EvenementsComponent implements OnInit {
               }
             )
           });
-          
-          
         });
       }
     )

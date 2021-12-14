@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map, Observable } from 'rxjs';
 import { Evenement } from './evenements/evenement';
 import { Tournoi } from './tournoi/tournoi';
+import { Equipe } from './equipe/equipe';
 @Injectable({
   providedIn: 'root'
 })
@@ -36,6 +37,14 @@ export class DataService {
       })
     )
   }
+  
+  getTournoi(): Observable<Tournoi[]>{
+    return this.http.get<Tournoi[]>(this.urlAPi+'/api/tournois', this.requestOptions).pipe(
+      map(res => {
+        return res;
+      })
+    )
+  }
 
   getTournoiById(id: any): Observable<Tournoi>{
     return this.http.get<Tournoi>(this.urlAPi+'/api/tournois/'+id, this.requestOptions).pipe(
@@ -44,5 +53,23 @@ export class DataService {
       })
     )
   }
+
+  getEquipeByid(id: any): Observable<Equipe>
+{
+  return this.http.get<Equipe>(this.urlAPi+'api/equipe/'+id, this.requestOptions).pipe(
+    map(res => {
+      return res;
+    })
+  )  
+}
+
+
+getEquipeByURL(id: string): Observable<Equipe>{
+  return this.http.get<Equipe>(this.urlAPi+id, this.requestOptions).pipe(
+    map(res =>{
+      return res;
+    })
+  )
+}
 
 }
