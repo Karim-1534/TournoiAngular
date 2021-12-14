@@ -23,7 +23,6 @@ export class EvenementsComponent implements OnInit {
             this.data.getTournoiByURL(url).subscribe(
               (data: Tournoi) => {
                 ev.listTournois.push(data)
-                console.log(ev.listTournois)
               }
             )
           });

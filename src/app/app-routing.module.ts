@@ -6,7 +6,12 @@ import { ModifierEvenementComponent } from './modifier-evenement/modifier-evenem
 import { SupprimerEvenementComponent } from './supprimer-evenement/supprimer-evenement.component';
 import { LoginComponent } from './login/login.component';
 import { TournoiComponent } from './tournoi/tournoi.component';
-
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
 
 const routes: Routes = [
   {path : "evenements/tournoi/:id", component : TournoiComponent},
@@ -15,9 +20,16 @@ const routes: Routes = [
   {path : "modifierEvenement", component : ModifierEvenementComponent},
   {path : "supprimerEvenement", component : SupprimerEvenementComponent},
   {path : "login", component : LoginComponent},
-  {path : "", redirectTo: "evenements", pathMatch: "full" }
-
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'user', component: BoardUserComponent },
+  { path: 'mod', component: BoardModeratorComponent },
+  { path: 'admin', component: BoardAdminComponent },
+  { path: '', redirectTo: 'evenements', pathMatch: 'full' }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
