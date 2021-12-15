@@ -14,29 +14,21 @@
       <a class="nav-link" routerLink="evenements">Home</a>
     </li>
     <br>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="showAdminBoard">
       <a class="nav-link" routerLink="ajoutEvenement">Ajouter</a>
     </li>
     <br>
     
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="showGestBoard">
       <a class="nav-link" routerLink="modifierEvenement">Modifier</a>
     </li>
     <br>
 
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="showAdminBoard ">
       <a class="nav-link" routerLink="supprimerEvenement">Supprimer</a>
     </li>
     <br>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-      </li>
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
+      
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
