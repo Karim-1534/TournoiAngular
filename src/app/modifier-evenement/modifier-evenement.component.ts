@@ -16,6 +16,8 @@ export class ModifierEvenementComponent implements OnInit {
 
   constructor(private data: DataService, private token: TokenStorageService) { }
 
+  ev_update = new Evenement();
+
   getEv(): void {
     this.data.getEvenements().subscribe(
       (data: Evenement[]) => {
