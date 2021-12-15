@@ -14,13 +14,6 @@ export class EquipeComponent implements OnInit {
   equipe!: Equipe;
   constructor(private route: ActivatedRoute, private data: DataService) { }
 
-  ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id')
-    this.data.getEquipeByid(this.id).subscribe(
-      (data: Equipe)=> {
-        this.equipe = data;
-      }
-    )
-  }
+  ngOnInit(): void { }
 
 }

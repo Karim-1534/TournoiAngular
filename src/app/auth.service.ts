@@ -24,13 +24,7 @@ export class AuthService {
 
   constructor(private router: Router, protected http: HttpClient) { }
 
-  getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.apiURL, this.requestOptions).pipe(
-      map(res =>{
-        return res;
-      })
-    )
-  }
+  
   
   logout() {
     this.isloggedIn = false

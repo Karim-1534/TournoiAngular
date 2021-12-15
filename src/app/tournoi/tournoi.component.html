@@ -1,22 +1,30 @@
 
-<h1>{{ tournoi.nom }} :</h1>
-<h2>{{ tournoi.description }}</h2>
-
-
-<li *ngFor="let equipe of tournoi.listEquipes">
-    <a> {{equipe.nom}}</a>
-</li>
-
-
-<!--
-<ul>
-        <a > {{tournois.nom}}</a>
-        <a> {{tournois.description}}</a>
-    <li *ngFor = "let equipe of tournois.listEquipes">
-            <a>{{equipe.nom}}</a>
-    </li>
-
-
-
-</ul>
--->
+<br />
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Equipes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ tournoi.nom }}</td>
+            <td>{{ tournoi.description }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let e of tournoi.listEquipes">
+                  <a [routerLink]="['tournoi', e.id]">{{ e.nom }}</a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

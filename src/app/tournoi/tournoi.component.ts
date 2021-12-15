@@ -9,39 +9,39 @@ import { Tournoi } from './tournoi';
   styleUrls: ['./tournoi.component.css']
 })
 export class TournoiComponent implements OnInit {
-  public tournois: Tournoi[]= [];
-  id!: string | null;
-  tournoi!: Tournoi;
+  public id!: string | null;
+  public tournoi!: Tournoi;
   constructor(private route: ActivatedRoute, private data: DataService) { }
 
 
 
 
-  getAll(): void{
-    this.data.getTournoi().subscribe(
-      (data: Tournoi[]) => {
-        this.tournois = data
-        data.forEach(trn => {
-          trn.listEquipes = []
-          trn.equipes.forEach(url => {
-            this.data.getEquipeByid(url).subscribe(
-              (data: Equipe) => {
-                trn.listEquipes.push(data)
+  getEquipe(): void {
+    this.data.getEquipe().subscribe(
+      (equipes: Equipe[]) => {
+        equipes.forEach(eq => {
+          this.data.getTournoiByURL(eq.trn).subscribe(
+            (tn: Tournoi) => {
+              if(tn.id==this.tournoi.id){
+                this.tournoi.listEquipes.push(eq)
               }
-            )
-          })
-        })
+            }
+          )
+        });
       }
     )
   }
 
   ngOnInit(): void {
-    this.id=this.route.snapshot.paramMap.get('id')
+    this.id = this.route.snapshot.paramMap.get('id')
     this.data.getTournoiById(this.id).subscribe(
       (data: Tournoi) => {
         this.tournoi = data;
+        this.tournoi.listEquipes = []
+        this.getEquipe()
       }
     )
+    
   }
 
 }

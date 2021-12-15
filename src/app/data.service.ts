@@ -54,22 +54,13 @@ export class DataService {
     )
   }
 
-  getEquipeByid(id: any): Observable<Equipe>
-{
-  return this.http.get<Equipe>(this.urlAPi+'api/equipe/'+id, this.requestOptions).pipe(
+  getEquipe(): Observable<Equipe[]>{
+  return this.http.get<Equipe[]>(this.urlAPi+'/api/equipes', this.requestOptions).pipe(
     map(res => {
       return res;
     })
   )  
 }
 
-
-getEquipeByURL(id: string): Observable<Equipe>{
-  return this.http.get<Equipe>(this.urlAPi+id, this.requestOptions).pipe(
-    map(res =>{
-      return res;
-    })
-  )
-}
 
 }
