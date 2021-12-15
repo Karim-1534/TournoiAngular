@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path : "evenements/tournoi/:id", component : TournoiComponent},
+  {path : "evenements/tournoi/:id/:ev", component : TournoiComponent},
   {path : "evenements", component : EvenementsComponent},
   {path : "ajoutEvenement", component : AjoutEvenementComponent},
   {path : "modifierEvenement", component : ModifierEvenementComponent},

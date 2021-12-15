@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { DataService } from '../data.service';
 import { Equipe } from '../equipe/equipe';
+import { TokenStorageService } from '../_services/token-storage.service';
 import { Tournoi } from './tournoi';
 @Component({
   selector: 'app-tournoi',
@@ -10,8 +11,12 @@ import { Tournoi } from './tournoi';
 })
 export class TournoiComponent implements OnInit {
   public id!: string | null;
+  public ev!: string | null;
   public tournoi!: Tournoi;
-  constructor(private route: ActivatedRoute, private data: DataService) { }
+  currentUser: any;
+  showGestBoard: boolean = false;
+
+  constructor(private route: ActivatedRoute, private data: DataService, private token: TokenStorageService) { }
 
 
 
@@ -32,11 +37,16 @@ export class TournoiComponent implements OnInit {
     )
   }
 
+
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
+    console.log(this.currentUser['username'])
     this.id = this.route.snapshot.paramMap.get('id')
+    this.ev = this.route.snapshot.paramMap.get('ev')
     this.data.getTournoiById(this.id).subscribe(
       (data: Tournoi) => {
         this.tournoi = data;
+        this.showGestBoard = ((this.currentUser.roles.includes('ROLE_GEST')) && (this.ev==data.ev.substr(-1)))
         this.tournoi.listEquipes = []
         this.getEquipe()
       }
