@@ -1,1 +1,36 @@
 <p>ajout-joueur works!</p>
+
+<div class="container" >
+    <div>
+        <h2>Ajouter un joueur :</h2>
+    </div>
+    <form>
+        
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom </label>
+            <input type="text" name="nom" class="form-control" required>
+        </div>
+
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Niveau du joueur
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">loisir</a>
+              <a class="dropdown-item" href="#">départemental</a>
+              <a class="dropdown-item" href="#">régional</a>
+              <a class="dropdown-item" href="#">N3</a>
+              <a class="dropdown-item" href="#">N2</a>
+              <a class="dropdown-item" href="#">Elite</a>
+              <a class="dropdown-item" href="#">Pro</a>
+            </div>
+          </div>
+          
+
+        <div class="mt-2">
+            <button type="submit" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+
+</div>
