@@ -18,6 +18,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { EquipeComponent } from './equipe/equipe.component';
 import { JoueurComponent } from './joueur/joueur.component';
+import { AjoutTournoiComponent } from './ajout-tournoi/ajout-tournoi.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { JoueurComponent } from './joueur/joueur.component';
     HomeComponent,
     ProfileComponent,
     EquipeComponent,
-    JoueurComponent
+    JoueurComponent,
+    AjoutTournoiComponent
   ],
   imports: [
     BrowserModule,
