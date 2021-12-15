@@ -19,7 +19,7 @@
             <td>
               <ul>
                 <li *ngFor="let t of ev.listTournois">
-                <a [routerLink]="['tournoi',t.id]">{{ t.nom }}</a></li>
+                <a [routerLink]="['/evenements/tournoi',t.id]">{{ t.nom }}</a></li>
               </ul>
             </td>
           </tr>
