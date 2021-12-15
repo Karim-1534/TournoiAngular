@@ -2,51 +2,14 @@
 <div class="container">
   <h1>Modifier votre évenement :</h1>
   <div class="card shadow mb-4">
-    <div class="card-body">
-      <table class="table table-striped">
-        <tr>
-          <th>Id</th>
-          <th>Nom</th>
-          <th>Date</th>
-          <th>Lieu</th>
-          <th>Tournois</th>
-        </tr>
-        <tbody>
-          <tr>
-            <td>{{ ev.id }}</td>
-            <td>{{ ev.nom }}</td>
-            <td>{{ ev.date | date: "dd/MM/yyyy" }}</td>
-            <td>{{ ev.lieu }}</td>
-            <td>
-              <ul>
-                <li *ngFor="let t of ev.listTournois">
-                  <a [routerLink]="['/evenements/tournoi', t.id, ev.id]">{{
-                    t.nom
-                  }}</a>
-                </li>
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
     <form>
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>
-              <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>Nom</label>
-              </div>
-            </th>
-            <th><div class="col-sm-4 col-md-4 col-lg-4">
-                <label>Date</label>
-              </div></th>
-            <th><div class="col-sm-4 col-md-4 col-lg-4">
-                <label>Lieu</label></div></th>
-            <th><div class="col-sm-4 col-md-4 col-lg-4">
-                <label>Tournoi</label></div></th>
-          </tr>
+          <th>{{ ev.nom }}</th>
+          <th>{{ ev.date | date: "dd/MM/yyyy" }}</th>
+          <th>{{ ev.lieu }}</th>
+        </tr>
         </thead>
         <tbody>
           <tr>
@@ -60,36 +23,47 @@
               />
             </td>
             <td>
-                <input
-                  type="date"
-                  name="date"
-                  [(ngModel)]="ev_update.date"
-                  class="form-control"
-                  required
-                />
+              <input
+                type="date"
+                name="date"
+                [(ngModel)]="ev_update.date"
+                class="form-control"
+                required
+              />
             </td>
             <td>
-                <input
-                  type="text"
-                  name="lieu"
-                  [(ngModel)]="ev_update.lieu"
-                  class="form-control"
-                  required
-                />
+              <input
+                type="text"
+                name="lieu"
+                [(ngModel)]="ev_update.lieu"
+                class="form-control"
+                required
+              />
             </td>
             <td>
-                <button type="submit" class="btn btn-success">
-                  Ajouter
-                </button>
-            </td>
-            <td>
-                <button type="submit" class="btn btn-success">
-                  Enregistrer
-                </button>
+              <button type="submit" class="btn btn-success">Enregistrer</button>
             </td>
           </tr>
         </tbody>
       </table>
     </form>
+    <div class="card-body">
+      <h2>Tournois :</h2>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td *ngFor="let t of ev.listTournois">
+              <a [routerLink]="['/evenements/tournoi', t.id, ev.id]">{{
+                t.nom
+              }}</a>
+            </td>
+
+            <td>
+              <button type="submit" class="btn btn-success">Ajouter</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
