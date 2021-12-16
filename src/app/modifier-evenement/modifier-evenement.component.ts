@@ -44,11 +44,13 @@ export class ModifierEvenementComponent implements OnInit {
   }
 
   supprimerTournoi(t: Tournoi) {
-    let conf=confirm("Etes-vous sûr?");
-    if(conf)
+    let conf = confirm("Etes-vous sûr?");
+    if (conf)
       this.data.deleteTournoi(t.id).subscribe(
         data => {
           console.log(data)
+          this.reloadPage();
+
         })
   }
 
