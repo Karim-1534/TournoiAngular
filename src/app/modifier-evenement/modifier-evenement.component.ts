@@ -49,7 +49,6 @@ export class ModifierEvenementComponent implements OnInit {
       this.data.deleteTournoi(t.id).subscribe(
         data => {
           console.log(data)
-          this.reloadPage();
         })
   }
 
