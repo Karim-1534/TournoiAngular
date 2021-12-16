@@ -1,4 +1,3 @@
-<p>ajout-tournoi works!</p>
 <div class="container" >
     <div>
         <h2>Ajouter un tournoi :</h2>
@@ -7,19 +6,23 @@
         
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Nom du tournoi</label>
-            <input type="text" name="nom" class="form-control" required>
+            <input type="text" name="nom" [(ngModel)]="newTournoi.nom" class="form-control" required>
         </div>
 
 
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Formule du tournoi</label>
-            <input type="text" name="formule1" class="form-control" required> x <input type="text" name="formule2" class="form-control" required>
+            <input type="text" name="formule1"  class="form-control" required> x <input type="text" name="formule2" class="form-control" required>
         </div>
 
 
         <div class="mt-2">
-            <button type="submit" class="btn btn-success">Ajouter</button>
+            <button type="submit" (click)="addTournoi()" class="btn btn-success">Ajouter</button>
         </div>
     </form>
+    <br>
+    <div class="alert alert-success" *ngIf="request">
+      Tournoi ajouté !
+    </div>
 
 </div>

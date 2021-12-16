@@ -7,7 +7,7 @@ export class Evenement {
     lieu!: Date;
     user!: string;
     tournois!: string[];
-    listTournois: Tournoi[] = [];
+    listTournois!: Tournoi[];
 
 
     constructor(){}

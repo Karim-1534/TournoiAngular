@@ -9,15 +9,19 @@ import { TournoiComponent } from './tournoi/tournoi.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AjoutTournoiComponent } from './ajout-tournoi/ajout-tournoi.component';
+import { AjoutEquipeComponent } from './ajout-equipe/ajout-equipe.component';
 
 const routes: Routes = [
-  {path : "evenements/tournoi/:id", component : TournoiComponent},
-  {path : "evenements/tournoi/:id/:ev", component : TournoiComponent},
-  {path : "evenements", component : EvenementsComponent},
-  {path : "ajoutEvenement", component : AjoutEvenementComponent},
-  {path : "modifierEvenement", component : ModifierEvenementComponent},
-  {path : "supprimerEvenement", component : SupprimerEvenementComponent},
-  {path : "login", component : LoginComponent},
+  { path: "evenements/tournoi/:id", component: TournoiComponent },
+  { path: "evenements/tournoi/:id/:ev", component: TournoiComponent },
+  { path: "evenements", component: EvenementsComponent },
+  { path: "ajoutEvenement", component: AjoutEvenementComponent },
+  { path: "ajoutTournoi/:id", component: AjoutTournoiComponent },
+  { path: "ajoutEquipe", component: AjoutEquipeComponent },
+  { path: "modifierEvenement", component: ModifierEvenementComponent },
+  { path: "supprimerEvenement", component: SupprimerEvenementComponent },
+  { path: "login", component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

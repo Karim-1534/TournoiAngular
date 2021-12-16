@@ -5,22 +5,24 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>Nom</th>
-            <th>Description</th>
-            <th>Equipes</th>
+            <th>Tournoi {{ tournoi.nom }}</th>
+            <th> {{ tournoi.description }}</th>
           </tr>
         </thead>
         <tbody>
+          <tr *ngFor="let e of tournoi.listEquipes">
+            <td> Equipe {{e.id }}</td>
+            <td ><a [routerLink]="['tournoi', e.id]">{{ e.nom }}</a></td>
+          </tr>
           <tr>
-            <td>{{ tournoi.nom }}</td>
-            <td>{{ tournoi.description }}</td>
-            <td>
-              <ul>
-                <li *ngFor="let e of tournoi.listEquipes">
-                  <a [routerLink]="['tournoi', e.id]">{{ e.nom }}</a>
-                </li>
-                <button *ngIf="showGestBoard" type="submit" class="btn btn-success">+</button>
-              </ul>
+            <td colspan="2"><button
+                *ngIf="showGestBoard"
+                type="submit"
+                class="btn btn-success"
+                [routerLink]="['/ajoutEquipe']" 
+              >
+                Ajouter
+              </button>
             </td>
           </tr>
         </tbody>

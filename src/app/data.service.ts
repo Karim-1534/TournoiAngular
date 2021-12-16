@@ -14,8 +14,15 @@ export class DataService {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   }
+  headerFetch = {
+    'Accept': 'application/ld+json',
+    'Content-Type': 'application/merge-patch+json',
+  }
   requestOptions = {
     headers: new HttpHeaders(this.headerDict),
+  };
+  requestFetch= {
+    headers: new HttpHeaders(this.headerFetch),
   };
   constructor(protected http: HttpClient) { }
 
@@ -29,6 +36,10 @@ export class DataService {
 
   addEvenement(ev: Evenement): Observable<Evenement> {
     return this.http.post<Evenement>(this.urlAPi + '/api/evenements', ev, this.requestOptions);
+  }
+
+  updateEvenement(ev: Evenement): Observable<Evenement> {
+    return this.http.patch<Evenement>(this.urlAPi + '/api/evenements/'+ev.id, ev, this.requestFetch);
   }
 
   getTournoiByURL(id: string): Observable<Tournoi> {
@@ -53,6 +64,14 @@ export class DataService {
         return res;
       })
     )
+  }
+
+  addTournoi(tr: Tournoi): Observable<Tournoi> {
+    return this.http.post<Tournoi>(this.urlAPi + '/api/tournois', tr, this.requestOptions);
+  }
+
+  deleteTournoi(id: number): Observable<Tournoi> {
+    return this.http.delete<Tournoi>(this.urlAPi + '/api/tournois/' + id);
   }
 
   getEquipe(): Observable<Equipe[]> {

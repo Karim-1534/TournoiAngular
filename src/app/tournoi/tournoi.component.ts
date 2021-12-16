@@ -27,8 +27,10 @@ export class TournoiComponent implements OnInit {
         equipes.forEach(eq => {
           this.data.getTournoiByURL(eq.trn).subscribe(
             (tn: Tournoi) => {
-              if(tn.id==this.tournoi.id){
+              if (tn.id == this.tournoi.id) {
                 this.tournoi.listEquipes.push(eq)
+                console.log(this.tournoi.listEquipes)
+
               }
             }
           )
@@ -40,18 +42,20 @@ export class TournoiComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
-    console.log(this.currentUser['username'])
     this.id = this.route.snapshot.paramMap.get('id')
     this.ev = this.route.snapshot.paramMap.get('ev')
     this.data.getTournoiById(this.id).subscribe(
       (data: Tournoi) => {
         this.tournoi = data;
-        this.showGestBoard = ((this.currentUser.roles.includes('ROLE_GEST')) && (this.ev==data.ev.substr(-1)))
+        if (this.currentUser.roles) {
+          this.showGestBoard = ((this.currentUser.roles.includes('ROLE_GEST')) && (this.ev == data.ev.substr(-1)))
+        }
         this.tournoi.listEquipes = []
         this.getEquipe()
+
       }
     )
-    
+
   }
 
 }

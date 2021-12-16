@@ -1,8 +1,8 @@
 <br />
 <div class="container">
   <div class="card shadow mb-4">
-    <h1>Modifier votre évenement :</h1>
     <div class="card-body">
+          <h1>Modifier votre évenement :</h1>
       <form>
         <table class="table table-striped">
           <thead>
@@ -42,7 +42,7 @@
                 />
               </td>
               <td>
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success" (click)="updateEvenement(ev.id)">
                   Enregistrer
                 </button>
               </td>
@@ -64,11 +64,12 @@
                   t.nom
                 }}</a>
               </td>
+              <td><button type="submit" class="btn btn-danger" (click)="supprimerTournoi(t)">Supprimer</button></td>
             </tr>
 
             <tr>
-              <td>
-                <button type="submit" class="btn btn-success">Ajouter</button>
+              <td colspan="2" >
+                <button type="submit" class="btn btn-success" [routerLink]="['/ajoutTournoi',ev.id]" >Ajouter</button>
               </td>
             </tr>
           </tbody>
