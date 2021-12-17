@@ -7,8 +7,7 @@
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th>Tournoi</th>
-                    </tr>   
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -16,10 +15,7 @@
                             <input type="text" name="nom" [(ngModel)]="newEquipe.nom" class="form-control" required />
                         </td>
                         <td>
-                            <input type="text" name="date" [(ngModel)]="newEquipe.trn" class="form-control" required />
-                        </td>
-                        <td>
-                            <button type="submit" (click)="addEquipe()"class="btn btn-success">
+                            <button type="submit" (click)="addEquipe()" class="btn btn-success">
                                 Ajouter
                             </button>
                         </td>

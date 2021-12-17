@@ -22,6 +22,7 @@ import { AjoutTournoiComponent } from './ajout-tournoi/ajout-tournoi.component';
 import { AjoutEquipeComponent } from './ajout-equipe/ajout-equipe.component';
 import { GestionUSerComponent } from './gestion-user/gestion-user.component';
 import { AjoutJoueurComponent } from './ajout-joueur/ajout-joueur.component';
+import { ModifierEquipeComponent } from './modifier-equipe/modifier-equipe.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { AjoutJoueurComponent } from './ajout-joueur/ajout-joueur.component';
     AjoutTournoiComponent,
     AjoutEquipeComponent,
     GestionUSerComponent,
-    AjoutJoueurComponent
+    AjoutJoueurComponent,
+    ModifierEquipeComponent
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,6 @@ export class JoueurComponent implements OnInit {
     this.jr_update.id =id;
     this.data.updateJoueur(this.jr_update).subscribe(
       data => {
-        console.log(data);
         this.reloadPage();
       }
     )
@@ -52,7 +51,6 @@ export class JoueurComponent implements OnInit {
     this.data.getJoueurById(this.id).subscribe(
       (data: Joueur) => {
         this.joueur = data;
-        console.log(this.joueur);
       })
   
   }
