@@ -5,7 +5,7 @@ export class Evenement {
     nom!: string;
     date!: Date;
     lieu!: Date;
-    user!: string;
+    user!: string ;
     tournois!: string[];
     listTournois!: Tournoi[];
 

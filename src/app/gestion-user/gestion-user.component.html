@@ -2,6 +2,7 @@
 <div class="container">
   <div class="card shadow mb-4">
     <div class="card-body">
+      <h1>Gestion des rôles</h1>
       <form>
         <table class="table table-striped">
           <tr>
@@ -57,6 +58,56 @@
                     Supprimer
                   </button>
                 </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+      <h1>Gestionnaires des Evenements</h1>
+
+      <form>
+        <table class="table table-striped">
+          <tr>
+            <th>Gestionnaire</th>
+            <th>Evenement</th>
+          </tr>
+          <tbody>
+            <tr *ngFor="let user of getUsers()">
+              <ng-container *ngIf="user.roles[0].includes('ROLE_GEST')">
+                <td>{{ user.login }}</td>
+                <td *ngIf="user.ev">{{ user.ev.nom }}</td>
+                <td *ngIf="!user.ev">
+                  <select
+                    id="{{ user.id }}"
+                    class="custom-select"
+                    name="ev"
+                    [(ngModel)]="update"
+                  >
+                    <ng-container *ngFor="let ev of getEvenements()">
+                      <option *ngIf="!ev.user" value='{ "id":{{ev.id}}, "user":"api/users/{{ user.id }}" }'>
+                        {{ ev.nom }}
+                      </option>
+                    </ng-container>
+                  </select>
+
+                  <button
+                    type="submit"
+                    class="btn btn-success"
+                    (click)="attrEV()"
+                  >
+                    Attribuer
+                  </button>
+                </td>
+
+              <td>
+                <button
+                    type="submit"
+                    class="btn btn-danger"
+                    (click)="supprimerEv(user)"
+                  >
+                    Supprimer
+                  </button>
+              </td>
               </ng-container>
             </tr>
           </tbody>

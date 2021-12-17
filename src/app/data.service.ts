@@ -43,6 +43,10 @@ export class DataService {
     return this.http.patch<Evenement>(this.urlAPi + '/api/evenements/'+ev.id, ev, this.requestFetch);
   }
 
+  putEvenement(ev: Evenement): Observable<Evenement> {
+    return this.http.put<Evenement>(this.urlAPi + '/api/evenements/'+ev.id, ev, this.requestOptions);
+  }
+
   deleteEvenement(id: number): Observable<Evenement> {
     return this.http.delete<Evenement>(this.urlAPi + '/api/evenements/' + id);
   }

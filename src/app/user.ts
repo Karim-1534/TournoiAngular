@@ -1,3 +1,4 @@
+import { Evenement } from './evenements/evenement';
 import { Role } from './role';
 
 export class User {
@@ -5,4 +6,5 @@ export class User {
     login!:string;
     password!: string;
     roles!: string[];
+    ev!: Evenement;
 }
