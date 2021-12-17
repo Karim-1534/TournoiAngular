@@ -12,11 +12,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { AjoutEquipeComponent } from './ajout-equipe/ajout-equipe.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { JoueurComponent } from './joueur/joueur.component';
-<<<<<<< HEAD
 import { GestionUSerComponent } from './gestion-user/gestion-user.component';
-=======
 import { AjoutJoueurComponent } from './ajout-joueur/ajout-joueur.component';
->>>>>>> 7f7c96e73d7c78e33612818d474e69492472d806
 
 const routes: Routes = [
   
