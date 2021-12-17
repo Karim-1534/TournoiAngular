@@ -140,9 +140,10 @@ export class DataService {
     )
   }
 
-  addJoueur(eq: Joueur): Observable<Joueur> {
-    return this.http.post<Joueur>(this.urlAPi + '/api/joueurs', eq, this.requestOptions);
+  addJoueur(jr: Joueur): Observable<Joueur> {
+    return this.http.post<Joueur>(this.urlAPi + '/api/joueurs', jr, this.requestOptions);
   }
+  
 
 
   getJoueurById(id: any): Observable<Joueur> {
@@ -159,7 +160,13 @@ export class DataService {
       })
     )
   }
+  updateJoueur(jr: Joueur): Observable<Joueur> {
+    return this.http.patch<Joueur>(this.urlAPi + '/api/joueurs/'+jr.id, jr, this.requestFetch);
+  }
 
+  deleteJoueur(id: number): Observable<Joueur> {
+    return this.http.delete<Joueur>(this.urlAPi + '/api/joueurs/' + id);
+  }
 
 
 

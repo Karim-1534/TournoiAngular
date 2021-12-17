@@ -2,7 +2,7 @@
 <div class="container">
   <div class="card shadow mb-4">
     <div class="card-body">
-      <table class="table table-striped">
+      <table class="table table-striped container" >
         <tr>
           <th>Nom</th>
           <th>Joueurs</th>
@@ -16,6 +16,7 @@
                 <a [routerLink]="['joueur', jr.id]"> {{jr.nom}}</a>
               </li>
              </ul>
+             <button type="submit" class="btn btn-success" [routerLink]="[equipe.id]">Ajouter un joueur</button>
             </td>
           </tr>
         </tbody>
@@ -23,3 +24,4 @@
     </div>
   </div>
 </div>
+o
