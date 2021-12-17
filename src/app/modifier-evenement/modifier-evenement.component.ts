@@ -31,7 +31,7 @@ export class ModifierEvenementComponent implements OnInit {
           )
           ev.listTournois = []
           ev.tournois.forEach(url => {
-            this.data.getTournoiByURL(url).subscribe(
+            this.data.getTournoiByUrl(url).subscribe(
               (data: Tournoi) => {
                 ev.listTournois.push(data)
               }

@@ -1,3 +1,4 @@
+import { Joueur } from "../joueur/joueur";
 import { Tournoi } from "../tournoi/tournoi";
 
 export class Equipe {
@@ -5,7 +6,8 @@ export class Equipe {
     nom!: string;
     trn!: string;
     tournoi!: Tournoi;
-
+    listJoueur: Joueur[]=[];
+    joueurs!: string[];
 
     constructor() { }
 

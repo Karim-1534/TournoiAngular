@@ -1,1 +1,25 @@
-<p>equipe works!</p>
+<br>
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>Nom</th>
+          <th>Joueurs</th>
+        </tr>
+        <tbody>
+          <tr >
+            <td>{{equipe.nom}}</td>
+            <td >
+             <ul *ngFor=" let eq of equipes ">
+              <li *ngFor=" let jr of eq.listJoueur ">
+                <a [routerLink]="['joueur', jr.id]"> {{jr.nom}}</a>
+              </li>
+             </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

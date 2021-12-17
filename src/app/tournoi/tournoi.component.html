@@ -16,10 +16,10 @@
             <td>{{ tournoi.description }}</td>
             <td>
               <ul>
-                <li *ngFor="let e of tournoi.listEquipes">
-                  <a [routerLink]="['tournoi', e.id]">{{ e.nom }}</a>
+                <li *ngFor="let e of  getTournoi().listEquipes">
+                  <a [routerLink]="[e.id]">{{ e.nom }}</a>
                 </li>
-                <button *ngIf="showGestBoard" type="submit" class="btn btn-success">+</button>
+                <button class="nav-link" *ngIf="showGestBoard" routerLink="ajoutEquipe" type="submit" class="btn btn-success">+</button>
               </ul>
             </td>
           </tr>
@@ -28,3 +28,4 @@
     </div>
   </div>
 </div>
+

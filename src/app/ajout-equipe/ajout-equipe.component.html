@@ -1,18 +1,31 @@
 <p>ajout-equipe works!</p>
-<div class="container" >
-    <div>
-        <h2>Ajouter un Equipe :</h2>
+<div class="card shadow mb-4 container">
+    <h1>Ajouter une équipe</h1>
+    <div class="card-body">
+        <form>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Tournoi</th>
+                    </tr>   
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" name="nom" [(ngModel)]="newEquipe.nom" class="form-control" required />
+                        </td>
+                        <td>
+                            <input type="text" name="date" [(ngModel)]="newEquipe.trn" class="form-control" required />
+                        </td>
+                        <td>
+                            <button type="submit" (click)="addEquipe()"class="btn btn-success">
+                                Ajouter
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
-    <form>
-        
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>Nom de l'équipe</label>
-            <input type="text" name="nom"  class="form-control" required>
-        </div>
-
-        <div class="mt-2 container">
-            <button type="submit"  class="btn btn-success">Ajouter</button>
-        </div>
-    </form>
-
 </div>

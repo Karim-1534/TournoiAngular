@@ -5,6 +5,7 @@ import { Evenement } from './evenements/evenement';
 import { Tournoi } from './tournoi/tournoi';
 import { Equipe } from './equipe/equipe';
 import { User } from './user';
+import { Joueur } from './joueur/joueur';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,7 +32,7 @@ export class DataService {
     return this.http.post<Evenement>(this.urlAPi + '/api/evenements', ev, this.requestOptions);
   }
 
-  getTournoiByURL(id: string): Observable<Tournoi> {
+  getTournoiByUrl(id: string): Observable<Tournoi> {
     return this.http.get<Tournoi>(this.urlAPi + id, this.requestOptions).pipe(
       map(res => {
         return res;
@@ -55,6 +56,13 @@ export class DataService {
     )
   }
 
+  getUsersByUrl(id: string): Observable<User>{
+    return this.http.get<User>(this.urlAPi+ id, this.requestOptions).pipe(
+      map(res =>{
+        return res;
+      })
+    )
+  }
   getEquipe(): Observable<Equipe[]> {
     return this.http.get<Equipe[]>(this.urlAPi + '/api/equipes', this.requestOptions).pipe(
       map(res => {
@@ -63,13 +71,57 @@ export class DataService {
     )
   }
 
-  getUsersByUrl(id: string): Observable<User>{
-    return this.http.get<User>(this.urlAPi+ id, this.requestOptions).pipe(
+  addEquipe(eq: Equipe): Observable<Equipe> {
+    return this.http.post<Equipe>(this.urlAPi + '/api/equipes', eq, this.requestOptions);
+  }
+
+
+  getEquipeById(id: any): Observable<Equipe> {
+    return this.http.get<Equipe>(this.urlAPi + '/api/equipes/' + id, this.requestOptions).pipe(
+      map(res => {
+        return res;
+      })
+    )
+  }
+  getEquipeByUrl(id: string): Observable<Equipe>{
+    return this.http.get<Equipe>(this.urlAPi+ id, this.requestOptions).pipe(
       map(res =>{
         return res;
       })
     )
   }
+
+
+  getJoueur(): Observable<Joueur[]> {
+    return this.http.get<Joueur[]>(this.urlAPi + '/api/joueurs', this.requestOptions).pipe(
+      map(res => {
+        return res;
+      })
+    )
+  }
+  
+  addJoueur(eq: Joueur): Observable<Joueur> {
+    return this.http.post<Joueur>(this.urlAPi + '/api/joueurs', eq, this.requestOptions);
+  }
+
+
+  getJoueurById(id: any): Observable<Joueur> {
+    return this.http.get<Joueur>(this.urlAPi + '/api/joueurs/' + id, this.requestOptions).pipe(
+      map(res => {
+        return res;
+      })
+    )
+  }
+  getJoueurByUrl(id: string): Observable<Joueur>{
+    return this.http.get<Joueur>(this.urlAPi+ id, this.requestOptions).pipe(
+      map(res =>{
+        return res;
+      })
+    )
+  }
+
+
+
 
 
 }

@@ -9,15 +9,16 @@ import { DataService } from '../data.service';
 })
 export class AjoutEquipeComponent implements OnInit {
 
-//  newEquipe = new Equipe();
+  newEquipe = new Equipe();
+  
   constructor(private data: DataService) { }
- /* addEquipe (){
+  addEquipe (){
     this.data.addEquipe(this.newEquipe).subscribe(
       data => {
         console.log(data);
       }
     )
-  }*/
+  }
 
   ngOnInit(): void {
   }

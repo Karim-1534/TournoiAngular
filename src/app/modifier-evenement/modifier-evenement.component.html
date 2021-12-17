@@ -15,31 +15,13 @@
           <tbody>
             <tr>
               <td>
-                <input
-                  type="text"
-                  name="nom"
-                  [(ngModel)]="ev_update.nom"
-                  class="form-control"
-                  required
-                />
+                <input type="text" name="nom" [(ngModel)]="ev_update.nom" class="form-control" required />
               </td>
               <td>
-                <input
-                  type="date"
-                  name="date"
-                  [(ngModel)]="ev_update.date"
-                  class="form-control"
-                  required
-                />
+                <input type="date" name="date" [(ngModel)]="ev_update.date" class="form-control" required />
               </td>
               <td>
-                <input
-                  type="text"
-                  name="lieu"
-                  [(ngModel)]="ev_update.lieu"
-                  class="form-control"
-                  required
-                />
+                <input type="text" name="lieu" [(ngModel)]="ev_update.lieu" class="form-control" required />
               </td>
               <td>
                 <button type="submit" class="btn btn-success">
@@ -62,7 +44,7 @@
               <td>
                 <a [routerLink]="['/evenements/tournoi', t.id, ev.id]">{{
                   t.nom
-                }}</a>
+                  }}</a>
               </td>
             </tr>
 

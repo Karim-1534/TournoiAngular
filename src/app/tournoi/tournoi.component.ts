@@ -25,7 +25,7 @@ export class TournoiComponent implements OnInit {
     this.data.getEquipe().subscribe(
       (equipes: Equipe[]) => {
         equipes.forEach(eq => {
-          this.data.getTournoiByURL(eq.trn).subscribe(
+          this.data.getTournoiByUrl(eq.trn).subscribe(
             (tn: Tournoi) => {
               if(tn.id==this.tournoi.id){
                 this.tournoi.listEquipes.push(eq)
@@ -51,7 +51,11 @@ export class TournoiComponent implements OnInit {
         this.getEquipe()
       }
     )
-    
   }
+  getTournoi(): Tournoi{
+    return this.tournoi;
+  }
+  
+
 
 }
