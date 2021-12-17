@@ -13,25 +13,28 @@ import { AjoutEquipeComponent } from './ajout-equipe/ajout-equipe.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { JoueurComponent } from './joueur/joueur.component';
 import { AjoutJoueurComponent } from './ajout-joueur/ajout-joueur.component';
+import { ModifierEquipeComponent } from './modifier-equipe/modifier-equipe.component';
 
 const routes: Routes = [
   {path : "evenements/tournoi/:id", component : TournoiComponent},
-  {path : "evenements/tournoi/:id/:ev/:idequipe", component : EquipeComponent},
-  {path : "evenements/tournoi/:id/:ev", component : TournoiComponent},
+  {path : "evenements/tournoi/:idEvenement/:idTournoi/:idEquipe", component : EquipeComponent},
+  {path : "evenements/tournoi/:ev/:id", component : TournoiComponent},
   {path : "evenements", component : EvenementsComponent},
   {path : "ajoutEvenement", component : AjoutEvenementComponent},
   {path : "modifierEvenement", component : ModifierEvenementComponent},
   {path : "supprimerEvenement", component : SupprimerEvenementComponent},
-  {path : "evenements/tournoi/:id/:ev/ajoutEquipe" , component : AjoutEquipeComponent},
   {path : "login", component : LoginComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'evenements/tournoi/:id/:ev/:idequipe/joueur/:id', component: JoueurComponent},
+  { path: 'evenements/tournoi/:id/:ev/:idEquipe/joueur/:id', component: JoueurComponent},
   { path: '', redirectTo: 'evenements', pathMatch: 'full' },
-  { path: 'evenements/tournoi/:id/:ev/:idequipe/:idequipe', component: AjoutJoueurComponent},
+  { path: 'evenements/tournoi/:IdEv/:idTournoi/:idEquipe/AjoutJoueur/:idEquipe', component: AjoutJoueurComponent},
+  { path: 'evenements/tournoi/:ev/:idTournoi/ajoutEquipe/:idTournoi', component: AjoutEquipeComponent },
+  { path: 'evenements/tournoi/:ev/:idTournoi/:idEquipe/ModifEquip/:idEquipe', component: ModifierEquipeComponent},
   
+
 ];
 
 

@@ -17,7 +17,7 @@ export class AjoutJoueurComponent implements OnInit {
   constructor(private route: ActivatedRoute, private data: DataService) { }
 
   addJoueur(){
-    this.id = "/api/equipes/"+this.route.snapshot.paramMap.get('id')
+    this.id = "/api/equipes/"+this.route.snapshot.paramMap.get('idEquipe')
     if (this.id){
       this.newJoueur.eqp = this.id
     }

@@ -1,0 +1,33 @@
+
+<br />
+<div class="container">
+  <div class="card shadow mb-4">
+    <h1>Modifier votre équipe :</h1>
+    <div class="card-body">
+<form>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>{{equipe.nom}}</td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" name="nom" [(ngModel)]="eq_update.nom" class="form-control" placeholder="Nom"
+              required />
+          </td>
+          <td>
+            <button type="submit" class="btn btn-success" (click)="updateEquipe(equipe.id)">
+              Modifier
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+</div>

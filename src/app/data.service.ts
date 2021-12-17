@@ -116,6 +116,14 @@ export class DataService {
     )
   }
 
+  updateEquipe(eq: Equipe): Observable<Equipe> {
+    return this.http.patch<Equipe>(this.urlAPi + '/api/equipes/'+eq.id, eq, this.requestFetch);
+  }
+  
+  deleteEquipe(id: number): Observable<Equipe> {
+    return this.http.delete<Equipe>(this.urlAPi + '/api/equipes/' + id);
+  }
+
 
   getJoueur(): Observable<Joueur[]> {
     return this.http.get<Joueur[]>(this.urlAPi + '/api/joueurs', this.requestOptions).pipe(

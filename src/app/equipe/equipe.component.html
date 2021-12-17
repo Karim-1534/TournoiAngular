@@ -2,21 +2,25 @@
 <div class="container">
   <div class="card shadow mb-4">
     <div class="card-body">
-      <table class="table table-striped container" >
+      <table class="table table-striped">
         <tr>
           <th>Nom</th>
           <th>Joueurs</th>
         </tr>
         <tbody>
           <tr >
-            <td>{{equipe.nom}}</td>
+            <td>{{equipe.nom}}<br>
+              <button type="submit" class="btn btn-success" [routerLink]="['ModifEquip', equipe.id]"> Modifier</button>
+            </td>
             <td >
              <ul *ngFor=" let eq of equipes ">
               <li *ngFor=" let jr of eq.listJoueur ">
                 <a [routerLink]="['joueur', jr.id]"> {{jr.nom}}</a>
               </li>
              </ul>
-             <button type="submit" class="btn btn-success" [routerLink]="[equipe.id]">Ajouter un joueur</button>
+              <button type="submit" class="btn btn-success" [routerLink]="['AjoutJoueur', equipe.id]">Ajouter joueur</button>
+            </td>
+            <td><button type="submit" class="btn btn-danger btn-red" (click)="supprimerEquipe(equipe)">Supprimer</button>
             </td>
           </tr>
         </tbody>
@@ -24,4 +28,3 @@
     </div>
   </div>
 </div>
-o
