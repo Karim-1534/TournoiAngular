@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AjoutEquipeComponent } from './ajout-equipe/ajout-equipe.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { JoueurComponent } from './joueur/joueur.component';
+import { AjoutJoueurComponent } from './ajout-joueur/ajout-joueur.component';
 
 const routes: Routes = [
   {path : "evenements/tournoi/:id", component : TournoiComponent},
@@ -28,7 +29,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'evenements/tournoi/:id/:ev/:idequipe/joueur/:id', component: JoueurComponent},
-  { path: '', redirectTo: 'evenements', pathMatch: 'full' }
+  { path: '', redirectTo: 'evenements', pathMatch: 'full' },
+  { path: 'evenements/tournoi/:id/:ev/:idequipe/:idequipe', component: AjoutJoueurComponent},
+  
 ];
 
 

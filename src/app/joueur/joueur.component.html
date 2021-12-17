@@ -5,20 +5,25 @@
     <div class="card-body">
       <form>
         <table class="table table-striped">
-          <thead> 
-          <tr>
+          <tbody>
+          <thead>
+            <tr>
               <th scope="col">Nom</th>
               <th scop="col">Niveau</th>
             </tr>
           </thead>
-            <tr>
-              <td>{{joueur.nom}}</td>
-              <td>{{joueur.niveau}}</td>
-            </tr>
-          <tbody> 
+          <tr>
+            <td>{{joueur.nom}}</td>
+            <td>{{joueur.niveau}}</td>
+            <td>
+              <button type="submit" class="btn btn-danger btn-red" (click)="supprimerJoueur(joueur)">Supprimer</button>
+            </td>
+          </tr>
+          <tbody>
             <tr>
               <td>
-                <input type="text" name="nom" [(ngModel)]="jr_update.nom" class="form-control" placeholder="Nom" required />
+                <input type="text" name="nom" [(ngModel)]="jr_update.nom" class="form-control" placeholder="Nom"
+                  required />
               </td>
               <td>
                 <select name="niveau" [(ngModel)]="jr_update.niveau">
@@ -33,7 +38,7 @@
                 </select>
               </td>
               <td>
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success" (click)="updateJoueur(joueur.id)">
                   Modifier
                 </button>
               </td>

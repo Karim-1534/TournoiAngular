@@ -17,15 +17,33 @@ export class JoueurComponent implements OnInit {
   currentUser: any;
 
   jr_update = new Joueur();
-  
   constructor(private route: ActivatedRoute, private data: DataService) { }
-  
-  
-
-  
 
 
+  updateJoueur(id: number){
+    this.jr_update.id =id;
+    this.data.updateJoueur(this.jr_update).subscribe(
+      data => {
+        console.log(data);
+        this.reloadPage();
+      }
+    )
+  }
 
+
+  supprimerJoueur(j: Joueur){
+    let conf = confirm("êtes vous sûr ?")
+    if(conf)
+      this.data.deleteJoueur(j.id).subscribe(
+        data => {
+          this.reloadPage();
+        }
+      )
+  }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
 
   ngOnInit(): void {
     this.nom = this.route.snapshot.paramMap.get('nom')
