@@ -31,6 +31,10 @@ export class EvenementsComponent implements OnInit {
     )
   }
 
+  getEvenements(): Evenement[]{
+    return this.evenements;
+  }
+
   ngOnInit(): void {
     this.getAll();
   }

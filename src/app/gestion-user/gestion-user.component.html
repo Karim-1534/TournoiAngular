@@ -1,0 +1,67 @@
+<br />
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <form>
+        <table class="table table-striped">
+          <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Rôles</th>
+            <th>Ajouter/ Modifier</th>
+          </tr>
+          <tbody>
+            <tr *ngFor="let user of getUsers()">
+              <ng-container *ngIf="!user.roles[0].includes('ROLE_ADMIN')">
+                <td>{{ user.id }}</td>
+                <td>{{ user.login }}</td>
+                <td>
+                  <ul *ngFor="let role of user.roles">
+                    <strong>{{ role }}</strong>
+                  </ul>
+                </td>
+                <td>
+                  <select
+                    id="{{ user.id }}"
+                    class="custom-select"
+                    name="roles"
+                    size="3"
+                    [(ngModel)]="user_update.roles"
+                    multiple
+                  >
+                    <option value="ROLE_ADMIN">ADMIN</option>
+                    <option value="ROLE_USER">UTILISATEUR</option>
+                    <option
+                      *ngIf="!user.roles[0].includes('ROLE_GEST')"
+                      value="ROLE_GEST"
+                    >
+                      GEST
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <button
+                    type="submit"
+                    class="btn btn-success"
+                    (click)="updateUser(user.id)"
+                  >
+                    Modifier
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="submit"
+                    class="btn btn-danger"
+                    (click)="supprimerUser(user)"
+                  >
+                    Supprimer
+                  </button>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

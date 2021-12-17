@@ -79,6 +79,13 @@ export class DataService {
     return this.http.delete<Tournoi>(this.urlAPi + '/api/tournois/' + id);
   }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.urlAPi + '/api/users', this.requestOptions).pipe(
+      map(res => {
+        return res;
+      })
+    )
+  }
 
   getUsersByUrl(id: string): Observable<User>{
     return this.http.get<User>(this.urlAPi+ id, this.requestOptions).pipe(
@@ -86,6 +93,14 @@ export class DataService {
         return res;
       })
     )
+  }
+
+  deleteUser(id: number): Observable<User> {
+    return this.http.delete<User>(this.urlAPi + '/api/users/' + id);
+  }
+
+  updateUser(user: User): Observable<User> {
+    return this.http.patch<User>(this.urlAPi + '/api/users/'+user.id, user, this.requestFetch);
   }
 
 

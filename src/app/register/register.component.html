@@ -1,34 +1,60 @@
 <div class="col-md-4 container">
-  <div class="card card-container">
-
-    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+  <div class="card card-body">
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
       <div class="form-group">
         <label for="login">Login</label>
-        <input type="text" class="form-control" name="login" [(ngModel)]="form.login" required minlength="3"
-          maxlength="20" #login="ngModel" />
+        <input
+          type="text"
+          class="form-control"
+          name="login"
+          [(ngModel)]="form.login"
+          required
+          minlength="3"
+          maxlength="20"
+          #login="ngModel"
+        />
         <div class="alert-danger" *ngIf="f.submitted && login.invalid">
+          Login requis doit avoir 3 caractères !
         </div>
-        <br>
+        <br />
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
-            #password="ngModel" />
-          <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="f.submitted && password.invalid"
+          >
+            Mot passe requis doit avoir 6 caractères !
           </div>
-          <br>
+          <br />
 
           <div class="form-group text-center">
             <button class="btn btn-success">Sign Up</button>
           </div>
-
-          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-            Signup failed!<br />{{ errorMessage }}
-          </div>
-
-
-          <div class="alert alert-success" *ngIf="isSuccessful">
-            Your registration is successful!
-          </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="f.submitted && isSignUpFailed">
+          Echec de l'inscription!<br />{{ errorMessage }}
         </div>
       </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Vous pouvez désormais vous connecter !
+    </div>
+  </div>
+</div>

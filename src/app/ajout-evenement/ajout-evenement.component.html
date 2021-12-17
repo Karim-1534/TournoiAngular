@@ -1,30 +1,53 @@
-<div class="container" >
-    <div>
-        <h2>Ajouter un Evenement :</h2>
-    </div>
-    <form>
-        
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>Nom de l'évenement</label>
-            <input type="text" name="nom" [(ngModel)]="newEvenement.nom" class="form-control" required>
-        </div>
-
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>Date</label>
-            <input type="date" name="date" [(ngModel)]="newEvenement.date" class="form-control" required>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>Lieu</label>
-            <input type="text" name="lieu" [(ngModel)]="newEvenement.lieu" class="form-control" required>
-        </div>
-
-        <div class="mt-2">
-            <button type="submit" (click)="addEvenement()" class="btn btn-success">Ajouter</button>
-        </div>
-    </form>
-    <br>
-    <div class="alert alert-success" *ngIf="request">
-      Evenement ajouté !
+<div class="container">
+  <div>
+    <h2>Ajouter un Evenement :</h2>
+  </div>
+  <form>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Nom de l'évenement</label>
+      <input
+        type="text"
+        name="nom"
+        [(ngModel)]="newEvenement.nom"
+        class="form-control"
+        required
+      />
     </div>
 
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date</label>
+      <input
+        type="date"
+        name="date"
+        [(ngModel)]="newEvenement.date"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Lieu</label>
+      <input
+        type="text"
+        name="lieu"
+        [(ngModel)]="newEvenement.lieu"
+        class="form-control"
+        required
+      />
+    </div>
+    <!-- <select
+      class="form-control"
+      [(ngModel)]="selectedWorkout"
+      (ngModelChange)="updateWorkout($event)"
+    >
+      <option *ngFor="#workout of workouts">{{ workout.name }}</option>
+    </select> -->
+
+    <div class="mt-2">
+      <button type="submit" (click)="addEvenement()" class="btn btn-success">
+        Ajouter
+      </button>
+    </div>
+  </form>
+  <br />
+  <div class="alert alert-success" *ngIf="request">Evenement ajouté !</div>
 </div>
