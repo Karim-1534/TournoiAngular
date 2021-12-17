@@ -17,7 +17,7 @@ import { AjoutJoueurComponent } from './ajout-joueur/ajout-joueur.component';
 
 const routes: Routes = [
   
-  {path : "evenements/tournoi/:id/:ev/:idequipe", component : EquipeComponent},
+  {path : "evenements/tournoi/:id/:ev/:idEquipe", component : EquipeComponent},
   {path : "evenements/tournoi/:id/:ev", component : TournoiComponent},
   {path : "evenements", component : EvenementsComponent},
   {path : "ajoutEvenement", component : AjoutEvenementComponent},
@@ -30,15 +30,14 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: GestionUSerComponent },
-  { path: 'evenements/tournoi/:id/:ev/:idequipe/joueur/:id', component: JoueurComponent},
+  { path: 'evenements/tournoi/:id/:ev/:idEquipe/joueur/:id', component: JoueurComponent},
   { path: '', redirectTo: 'evenements', pathMatch: 'full' },
-  { path: 'evenements/tournoi/:id/:ev/:idequipe/:idequipe', component: AjoutJoueurComponent},
-  
+  { path: 'evenements/tournoi/:id/:ev/:idEquipe/:idEquipe', component: AjoutJoueurComponent},
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)],  
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
