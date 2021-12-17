@@ -8,6 +8,8 @@ export class Equipe {
     tournoi!: Tournoi;
     listJoueur: Joueur[]=[];
     joueurs!: string[];
+    user!: string;
+
 
     constructor() { }
 
