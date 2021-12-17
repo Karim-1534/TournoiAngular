@@ -20,7 +20,7 @@ export class EvenementsComponent implements OnInit {
         data.forEach(ev => {
           ev.listTournois = []
           ev.tournois.forEach(url => {
-            this.data.getTournoiByUrl(url).subscribe(
+            this.data.getTournoiByURL(url).subscribe(
               (data: Tournoi) => {
                 ev.listTournois.push(data)
               }

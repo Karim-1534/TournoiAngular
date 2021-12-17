@@ -13,6 +13,7 @@ export class ModifierEvenementComponent implements OnInit {
 
   public ev!: Evenement;
   currentUser: any;
+  delete: boolean = false;
 
   constructor(private data: DataService, private token: TokenStorageService) { }
 
@@ -24,14 +25,14 @@ export class ModifierEvenementComponent implements OnInit {
         data.forEach(ev => {
           this.data.getUsersByUrl(ev.user).subscribe(
             (user: User) => {
-              if(user.login==this.currentUser["username"]){
-                this.ev=ev
+              if (user.login == this.currentUser["username"]) {
+                this.ev = ev
               }
             }
           )
           ev.listTournois = []
           ev.tournois.forEach(url => {
-            this.data.getTournoiByUrl(url).subscribe(
+            this.data.getTournoiByURL(url).subscribe(
               (data: Tournoi) => {
                 ev.listTournois.push(data)
               }
@@ -42,11 +43,36 @@ export class ModifierEvenementComponent implements OnInit {
     )
   }
 
+  supprimerTournoi(t: Tournoi) {
+    let conf = confirm("Etes-vous sûr?");
+    if (conf)
+      this.data.deleteTournoi(t.id).subscribe(
+        data => {
+          console.log(data)
+          this.reloadPage();
+
+        })
+  }
+
+  updateEvenement(id: number) {
+    this.ev_update.id = id;
+    console.log(this.ev_update)
+    this.data.updateEvenement(this.ev_update).subscribe(
+      data => {
+        console.log(data);
+
+        this.reloadPage();
+      }
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
 
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
-    console.log(this.currentUser)
     this.getEv();
   }
 

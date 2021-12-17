@@ -1,1 +1,50 @@
-<p>supprimer-evenement works!</p>
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h2>Evenements :</h2>
+      <table class="table table-striped">
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Date</th>
+          <th>Lieu</th>
+          <th>Tournois</th>
+        </tr>
+        <tbody>
+          <tr *ngFor="let ev of evenements">
+            <td>{{ ev.id }}</td>
+            <td>{{ ev.nom }}</td>
+            <td>{{ ev.date | date: "dd/MM/yyyy" }}</td>
+            <td>{{ ev.lieu }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let t of ev.listTournois">
+                  {{ t.nom }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <button
+                type="submit"
+                class="btn btn-danger"
+                (click)="supprimerEvenement(ev)"
+              >
+                Supprimer
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="alert alert-success" *ngIf="status">
+    {{ status }}
+  </div>
+  <div
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="errorMessage"
+  >
+    {{ errorMessage }}
+  </div>
+</div>

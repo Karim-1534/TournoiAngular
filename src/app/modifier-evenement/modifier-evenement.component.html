@@ -1,8 +1,8 @@
 <br />
 <div class="container">
   <div class="card shadow mb-4">
-    <h1>Modifier votre évenement :</h1>
     <div class="card-body">
+          <h1>Modifier votre évenement :</h1>
       <form>
         <table class="table table-striped">
           <thead>
@@ -15,16 +15,34 @@
           <tbody>
             <tr>
               <td>
-                <input type="text" name="nom" [(ngModel)]="ev_update.nom" class="form-control" required />
+                <input
+                  type="text"
+                  name="nom"
+                  [(ngModel)]="ev_update.nom"
+                  class="form-control"
+                  required
+                />
               </td>
               <td>
-                <input type="date" name="date" [(ngModel)]="ev_update.date" class="form-control" required />
+                <input
+                  type="date"
+                  name="date"
+                  [(ngModel)]="ev_update.date"
+                  class="form-control"
+                  required
+                />
               </td>
               <td>
-                <input type="text" name="lieu" [(ngModel)]="ev_update.lieu" class="form-control" required />
+                <input
+                  type="text"
+                  name="lieu"
+                  [(ngModel)]="ev_update.lieu"
+                  class="form-control"
+                  required
+                />
               </td>
               <td>
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success" (click)="updateEvenement(ev.id)">
                   Enregistrer
                 </button>
               </td>
@@ -44,13 +62,14 @@
               <td>
                 <a [routerLink]="['/evenements/tournoi', t.id, ev.id]">{{
                   t.nom
-                  }}</a>
+                }}</a>
               </td>
+              <td><button type="submit" class="btn btn-danger" (click)="supprimerTournoi(t)">Supprimer</button></td>
             </tr>
 
             <tr>
-              <td>
-                <button type="submit" class="btn btn-success">Ajouter</button>
+              <td colspan="2" >
+                <button type="submit" class="btn btn-success" [routerLink]="['/ajoutTournoi',ev.id]" >Ajouter</button>
               </td>
             </tr>
           </tbody>

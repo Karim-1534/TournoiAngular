@@ -5,7 +5,7 @@ export class Tournoi {
     nom!: string;
     description!: string;
     equipes!: string[];
-    listEquipes: Equipe[] = [];
+    listEquipes!: Equipe[];
     ev!: string;
 
     constructor() { }

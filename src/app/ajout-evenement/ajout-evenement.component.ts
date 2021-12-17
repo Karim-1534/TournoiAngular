@@ -8,13 +8,17 @@ import { Evenement } from '../evenements/evenement';
 })
 export class AjoutEvenementComponent implements OnInit {
   newEvenement = new Evenement();
+  request: boolean = false;
+
 
   constructor(private data: DataService) { }
 
-  addEvenement(){
+  addEvenement() {
     this.data.addEvenement(this.newEvenement).subscribe(
       data => {
-        console.log(data);
+        if (data) {
+          this.request = true
+        }
       }
     );
   }

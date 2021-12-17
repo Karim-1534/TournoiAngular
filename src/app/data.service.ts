@@ -15,8 +15,15 @@ export class DataService {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   }
+  headerFetch = {
+    'Accept': 'application/ld+json',
+    'Content-Type': 'application/merge-patch+json',
+  }
   requestOptions = {
     headers: new HttpHeaders(this.headerDict),
+  };
+  requestFetch= {
+    headers: new HttpHeaders(this.headerFetch),
   };
   constructor(protected http: HttpClient) { }
 
@@ -32,7 +39,15 @@ export class DataService {
     return this.http.post<Evenement>(this.urlAPi + '/api/evenements', ev, this.requestOptions);
   }
 
-  getTournoiByUrl(id: string): Observable<Tournoi> {
+  updateEvenement(ev: Evenement): Observable<Evenement> {
+    return this.http.patch<Evenement>(this.urlAPi + '/api/evenements/'+ev.id, ev, this.requestFetch);
+  }
+
+  deleteEvenement(id: number): Observable<Evenement> {
+    return this.http.delete<Evenement>(this.urlAPi + '/api/evenements/' + id);
+  }
+
+  getTournoiByURL(id: string): Observable<Tournoi> {
     return this.http.get<Tournoi>(this.urlAPi + id, this.requestOptions).pipe(
       map(res => {
         return res;
@@ -56,6 +71,15 @@ export class DataService {
     )
   }
 
+  addTournoi(tr: Tournoi): Observable<Tournoi> {
+    return this.http.post<Tournoi>(this.urlAPi + '/api/tournois', tr, this.requestOptions);
+  }
+
+  deleteTournoi(id: number): Observable<Tournoi> {
+    return this.http.delete<Tournoi>(this.urlAPi + '/api/tournois/' + id);
+  }
+
+
   getUsersByUrl(id: string): Observable<User>{
     return this.http.get<User>(this.urlAPi+ id, this.requestOptions).pipe(
       map(res =>{
@@ -63,6 +87,8 @@ export class DataService {
       })
     )
   }
+
+
   getEquipe(): Observable<Equipe[]> {
     return this.http.get<Equipe[]>(this.urlAPi + '/api/equipes', this.requestOptions).pipe(
       map(res => {
@@ -70,7 +96,6 @@ export class DataService {
       })
     )
   }
-
   addEquipe(eq: Equipe): Observable<Equipe> {
     return this.http.post<Equipe>(this.urlAPi + '/api/equipes', eq, this.requestOptions);
   }
@@ -99,7 +124,7 @@ export class DataService {
       })
     )
   }
-  
+
   addJoueur(eq: Joueur): Observable<Joueur> {
     return this.http.post<Joueur>(this.urlAPi + '/api/joueurs', eq, this.requestOptions);
   }
