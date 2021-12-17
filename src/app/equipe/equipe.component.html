@@ -8,20 +8,29 @@
           <th>Joueurs</th>
         </tr>
         <tbody>
-          <tr >
+          <tr>
             <td>{{equipe.nom}}<br>
-              <button type="submit" class="btn btn-success" [routerLink]="['ModifEquip', equipe.id]"> Modifier</button>
             </td>
-            <td >
-             <ul *ngFor=" let eq of equipes ">
-              <li *ngFor=" let jr of eq.listJoueur ">
-                <a [routerLink]="['joueur', jr.id]"> {{jr.nom}}</a>
-              </li>
-             </ul>
-              <button type="submit" class="btn btn-success" [routerLink]="['AjoutJoueur', equipe.id]">Ajouter joueur</button>
+            <td>
+              <ul *ngFor=" let eq of equipes ">
+                <li *ngFor=" let jr of eq.listJoueur ">
+                  <a [routerLink]="['joueur', jr.id]"> {{jr.nom}}</a>
+                </li>
+              </ul>
             </td>
-            <td><button type="submit" class="btn btn-danger btn-red" (click)="supprimerEquipe(equipe)">Supprimer</button>
-            </td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr *ngIf="isLoggedIn && checkUser">
+          
+            <th><button type="submit" class="btn btn-success" [routerLink]="['ModifEquip', equipe.id]">
+                Modifier</button></th>
+            <th><button type="submit" class="btn btn-success" [routerLink]="['AjoutJoueur', equipe.id]">Ajouter
+                joueur</button></th>
+            <th><button type="submit" class="btn btn-danger btn-red"
+                (click)="supprimerEquipe(equipe)">Supprimer</button></th>
+              
           </tr>
         </tbody>
       </table>

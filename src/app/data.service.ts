@@ -34,6 +34,20 @@ export class DataService {
       })
     )
   }
+  getEvenementByURL(id: string): Observable<Evenement> {
+    return this.http.get<Evenement>(this.urlAPi + id, this.requestOptions).pipe(
+      map(res => {
+        return res;
+      })
+    )
+  }
+  getEvenementById(id: any): Observable<Evenement> {
+    return this.http.get<Evenement>(this.urlAPi + '/api/evenements/' + id, this.requestOptions).pipe(
+      map(res => {
+        return res;
+      })
+    )
+  }
 
   addEvenement(ev: Evenement): Observable<Evenement> {
     return this.http.post<Evenement>(this.urlAPi + '/api/evenements', ev, this.requestOptions);

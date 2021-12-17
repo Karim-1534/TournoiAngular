@@ -5,29 +5,28 @@
     <div class="card-body">
       <form>
         <table class="table table-striped">
-          <tbody>
           <thead>
             <tr>
-              <th scope="col">Nom</th>
-              <th scop="col">Niveau</th>
+              <th>Nom</th>
+              <th>Niveau</th>
             </tr>
           </thead>
-          <tr>
-            <td>{{joueur.nom}}</td>
-            <td>{{joueur.niveau}}</td>
-            <td>
-              <button type="submit" class="btn btn-danger btn-red" (click)="supprimerJoueur(joueur)">Supprimer</button>
-            </td>
-          </tr>
           <tbody>
+
             <tr>
+              <td>{{joueur.nom}}</td>
+              <td>{{joueur.niveau}}</td>
+              <td>
+              </td>
+            </tr>
+            <tr *ngIf="isLoggedIn && checkUser">
               <td>
                 <input type="text" name="nom" [(ngModel)]="jr_update.nom" class="form-control" placeholder="Nom"
                   required />
               </td>
               <td>
-                <select name="niveau" class="form-control" [(ngModel)]="jr_update.niveau">
-                  <option value="" selected disabled hidden>Niveau</option>
+                <select name="niveau" class="form-select"  [(ngModel)]="jr_update.niveau">
+                  <option value="niveau" selected disabled hidden> Niveau</option>
                   <option value="loisir">loisir</option>
                   <option value="départemental">départemental</option>
                   <option value="régional">régional</option>
@@ -35,12 +34,15 @@
                   <option value="N2">N2</option>
                   <option value="Elite">Elite</option>
                   <option value="Pro">Pro</option>
-                </select>
+                </select><p class="text text-black-50">Niveau du joueur</p>
               </td>
               <td>
                 <button type="submit" class="btn btn-success" (click)="updateJoueur(joueur.id)">
                   Modifier
-                </button>
+                </button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-danger btn-red"
+                  (click)="supprimerJoueur(joueur)">Supprimer</button>
+
               </td>
             </tr>
           </tbody>
