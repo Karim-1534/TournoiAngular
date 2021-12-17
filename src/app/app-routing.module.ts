@@ -14,6 +14,7 @@ import { EquipeComponent } from './equipe/equipe.component';
 import { JoueurComponent } from './joueur/joueur.component';
 import { AjoutJoueurComponent } from './ajout-joueur/ajout-joueur.component';
 import { ModifierEquipeComponent } from './modifier-equipe/modifier-equipe.component';
+import { GestionUSerComponent } from './gestion-user/gestion-user.component';
 
 const routes: Routes = [
   {path : "evenements/tournoi/:id", component : TournoiComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path : "login", component : LoginComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'user', component: GestionUSerComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'evenements/tournoi/:id/:ev/:idEquipe/joueur/:id', component: JoueurComponent},
